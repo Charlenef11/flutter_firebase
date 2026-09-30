@@ -7,12 +7,14 @@ import 'firebase_options.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(const MyApp());
 }
+
+// void main() {
+//  runApp(const MainApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -37,10 +39,7 @@ class FirebaseHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Flutter Firebase'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Flutter Firebase'), centerTitle: true),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -49,18 +48,15 @@ class FirebaseHomePage extends StatelessWidget {
             SizedBox(height: 16),
             Text(
               'Firebase connected successfully!',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
 
+            SizedBox(height: 15),
 
-            SizedBox(height: 15,),
-
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (_)=> StudentPage()));
-            }, child: Text('Student Page'))
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (_) => StudentPage()));
+              }, child: Text('Student Page')),
           ],
         ),
       ),
